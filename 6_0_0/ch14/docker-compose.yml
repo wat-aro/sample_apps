@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/usr/src/app
+      - bundle_cache:/usr/local/bundle
+    ports:
+      - '3000:3000'
+    command: /bin/sh -c "bin/rails s -b 0.0.0.0"
+
+volumes:
+  bundle_cache:
